@@ -1,76 +1,97 @@
 package com.example.http;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ConnectManager {
-	Socket socket;
-	private PrintWriter writer;
-	
-	JSONObject jsonObject = new JSONObject();
+import com.example.database.UpdateState;
 
-	private DataOutputStream out;
+public class ConnectManager {
+	private PrintWriter writer;
+	private JSONObject jsonObject = new JSONObject();
+	private Socket socket;
 	
 	public ConnectManager() {
 	}
 
-	public ConnectManager(Socket socket) {
-
+	// 发送消息
+	public boolean send(String receiver, JSONObject jsonObject)
+			throws IOException {
+		if (HttpURL.map.get(receiver) != null) {
+			socket = HttpURL.map.get(receiver);
+			writer = new PrintWriter(new OutputStreamWriter(
+					socket.getOutputStream(), "UTF-8"), true);
+			writer.println(jsonObject.toString());
+			writer.flush();
+			return true;
+		} else {
+			return false;
+		}
 	}
 
-	// 向客户端发生消息
+	// 转发客户端之间的消息
 	public String Notice(String sender, String receiver, String content) {
-
 		JSONObject object = new JSONObject();
-
 		try {
 			object.put("sender", sender);
 			object.put("content", content);
 			jsonObject.put("object", "notice");
 			jsonObject.put("message", object);
-			
-			if (HttpURL.map.get(receiver) != null) {
-				socket = HttpURL.map.get(receiver);
-//				out = new DataOutputStream(socket.getOutputStream());
-//				out.writeUTF(jsonObject.toString());
-				writer = new PrintWriter(socket.getOutputStream());
-				writer.println(jsonObject.toString());
+
+			if (send(receiver, jsonObject)) {
 				return "Ok";
 			} else {
 				return "No";
 			}
-			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return "No";
 	}
 
 	// 注销
 	public String logout(String sender) {
-		// 发生给该用户好友(客户端)
-
-		return null;
+		onLogou(sender); // 注销时处于下线状态
+		if (HttpURL.map.get(sender) != null) {
+			HttpURL.map.remove(sender);
+			return "Ok";
+		}
+		return "No";
 	}
 
 	// 上线通知
 	public String onLogin(String sender) {
-		// 发生给该用户好友(客户端)
+		String string = new UpdateState().FriendsState(sender);
+		String[] NAMES = string.split("/");
+		if (NAMES[0].equals("")) {
+			NAMES = new String[0];
+		}
 
-		return null;
+		try {
+			for (int i = 0; i < NAMES.length; i++) {
+				jsonObject.put("object", "onLogin");
+				jsonObject.put("sender", sender);
+				send(NAMES[i], jsonObject);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return "OK";
 	}
 
 	// 下线通知
 	public String onLogou(String sender) {
-		// 发生给该用户好友(客户端)
+		// 修改该用户在其他好友中的状态
 
 		return null;
 	}

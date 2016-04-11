@@ -3,6 +3,7 @@ package com.example.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -38,6 +39,7 @@ public class ChatServer extends Thread {
 		private BufferedReader reader;
 		private String content = null;
 		private String name = null;
+		PrintWriter writer;
 
 		ChatSocket(Socket socket) {
 			this.socket = socket;
@@ -56,6 +58,7 @@ public class ChatServer extends Thread {
 			try {
 				reader = new BufferedReader(new InputStreamReader(
 						socket.getInputStream(), "UTF-8"));
+				writer = new PrintWriter(socket.getOutputStream());
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

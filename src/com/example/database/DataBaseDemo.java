@@ -30,7 +30,7 @@ public class DataBaseDemo {
 	// 查询账号是否注册
 	private boolean RegistrQuery(String username, String password) {
 		sql = "select * from account";// SQL语句
-		db1 = new DBHelper("app_yukiy");// 创建DBHelper对象
+		db1 = new DBHelper("myclient");// 创建DBHelper对象
 
 		try {
 			ret = db1.st.executeQuery(sql);// 执行语句，得到结果集
@@ -52,7 +52,7 @@ public class DataBaseDemo {
 	private String PasswordDB(String username, String password,
 			HttpServletResponse resp) {
 		sql = "select * from account where phone = '" + username + "'";// SQL语句
-		db1 = new DBHelper("app_yukiy");// 创建DBHelper对象
+		db1 = new DBHelper("myclient");// 创建DBHelper对象
 
 		try {
 			ret = db1.st.executeQuery(sql);// 执行语句，得到结果集
@@ -73,14 +73,14 @@ public class DataBaseDemo {
 
 	// 注册账号信息
 	private String Registr(String username, String password) {
-		db1 = new DBHelper("app_yukiy");// 创建DBHelper对象
+		db1 = new DBHelper("myclient");// 创建DBHelper对象
 
 		try {
 			if ((db1.st.executeUpdate("insert into account values('" + username
 					+ "', '" + password + "')")) == 1) { // 注册成功
 
 				db1.st.executeUpdate("create table " + username
-						+ "friends (name varchar(16) not null, age int null)");
+						+ "friends (name varchar(16) not null, age int null, state vachar(6) null)");
 				return "OK";
 			}
 			db1.close();// 关闭连接

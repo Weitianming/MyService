@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBHelper {
-	public static final String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3307/";
+	public static final String url = "jdbc:mysql://localhost:3306/";
 	public static final String name = "com.mysql.jdbc.Driver";
-	public static final String user = "zwo03l0w45";
-	public static final String password = "wjzj2x1514lwxlw4xj2ix0wkj22h2ww314w03j4h";
+	public static final String user = "root";
+	public static final String password = "root";
 
 	public static Connection conn = null;
 	public static PreparedStatement pst = null;

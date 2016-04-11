@@ -21,5 +21,6 @@
 	<classpathentry kind="lib" path="C:/Users/袁艺/Desktop/java框架/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/java框架/mysql-connector-java/mysql-connector-java-5.1.26/mysql-connector-java-5.1.26-bin.jar"/>
 	<classpathentry kind="lib" path="C:/Users/袁艺/Desktop/java框架/新浪云/sae-1.1.0-all.zip"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/java框架/新浪云/sae-local-1.1.0.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
