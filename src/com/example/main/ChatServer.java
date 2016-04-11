@@ -1,7 +1,9 @@
 package com.example.main;
 
-import java.io.DataInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -12,68 +14,78 @@ import com.example.http.HttpURL;
 
 public class ChatServer extends Thread {
 	private ServerSocket chatServerSocket;
-	private Socket socket;
-	private boolean isSocket = false;
-	private DataInputStream in = null;
 	private JSONObject jsonObject;
 
 	@Override
 	public void run() {
-
 		try {
 			chatServerSocket = new ServerSocket(5123);
 			while (true) {
 				System.out.println("等待连接！！");
-				socket = chatServerSocket.accept();
+				Socket socket = chatServerSocket.accept();
 				System.out.println("连接成功:"
 						+ socket.getInetAddress().getHostAddress());
-				isSocket = true;
-
-				new InputStreamSocket(socket).start();
-
+				new ChatSocket(socket).start();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
-	
-	class InputStreamSocket extends Thread {
+
+	// 记录已登录的客户端
+	class ChatSocket extends Thread {
 		private Socket socket;
-		public InputStreamSocket(Socket socket) {
+		private BufferedReader reader;
+		private String content = null;
+		private String name = null;
+
+		ChatSocket(Socket socket) {
 			this.socket = socket;
 		}
-		
+
+		@SuppressWarnings("deprecation")
 		@Override
 		public void run() {
-			try {
-			in = new DataInputStream(socket.getInputStream());
-
-			while (isSocket) {
-				String string = in.readUTF();
-				jsonObject = new JSONObject(string);
-				
-				if (HttpURL.map.get("sender") != null) {
-					HttpURL.map.remove(jsonObject.getString("sender"));
-					HttpURL.map.put(jsonObject.getString("sender"), socket);
-					isSocket = false;
-				} else {
-					HttpURL.map.put(jsonObject.getString("sender"), socket);
-					isSocket = false;
-				}
-				System.out.println("接收端增加至" + HttpURL.map.size());
-
+			synchronized (this) {
+				reader = null;
+				content = null;
+				name = null;
 			}
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-			
-		}
-		
-	}
+			// 取客户端内容
+			try {
+				reader = new BufferedReader(new InputStreamReader(
+						socket.getInputStream(), "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
+			// 取出客户端的数据并保持Socket
+			try {
+				while (true) {
+					if ((content = reader.readLine()) != null) {
+						jsonObject = new JSONObject(content);
+						if ((name = jsonObject.getString("sender")) != null) {
+							if (HttpURL.map.get(name) != null) {
+								HttpURL.map.remove(name);
+								HttpURL.map.put(name, socket);
+							} else {
+								HttpURL.map.put(name, socket);
+							}
+						}
+						System.out.println("连接数："+HttpURL.map.size());
+						stop();
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+
+		}
+	}
 
 }
