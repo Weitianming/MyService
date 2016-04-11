@@ -25,5 +25,5 @@ public class DataBaseFriends {
 		}
 		return stringBuffer.toString();
 	}
-	// ≤‚ ‘
+	
 }
