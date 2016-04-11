@@ -26,7 +26,4 @@ public class DataBaseFriends {
 		return stringBuffer.toString();
 	}
 	
-	// 测试部分代码同步
-	
-	
 }
