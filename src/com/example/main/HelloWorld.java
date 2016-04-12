@@ -15,8 +15,8 @@ import org.json.JSONObject;
 public class HelloWorld extends HttpServlet {
 	JSONObject jsonObject;
 
-	public HelloWorld() {
-	}
+//	public HelloWorld() {
+//	}
 	
 	// Get请求
 	@Override
@@ -61,6 +61,9 @@ public class HelloWorld extends HttpServlet {
 			throws ServletException, IOException {
 		
 		// 获取请求
+		
+		System.out.println("测试  "+req.getInputStream());
+		
 		BufferedReader bufferedReader = new BufferedReader(
 				new InputStreamReader(req.getInputStream(), "UTF-8"));
 		String line = "";

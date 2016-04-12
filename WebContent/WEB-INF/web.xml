@@ -8,7 +8,7 @@
 	<display-name>MyServersText</display-name>
 
 	<servlet>
-		<servlet-name>HelloWorld</servlet-name>
+		<servlet-name>helloWorld</servlet-name>
 		<servlet-class>com.example.main.HelloWorld</servlet-class>
 	</servlet>
 
@@ -23,7 +23,7 @@
 <!-- 	</servlet-mapping> -->
 
 	<servlet-mapping>
-		<servlet-name>HelloWorld</servlet-name>
+		<servlet-name>helloWorld</servlet-name>
 		<url-pattern>/greeting</url-pattern>
 	</servlet-mapping>
 
