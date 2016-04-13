@@ -15,7 +15,7 @@ public class DataBaseDemo {
 		if (RegistrQuery(username, password)) { // 该账号存在
 			if (PasswordDB(username, password)) {
 				return addDeviceId(username, deviceId); // 更新设备ID
-				// 测试
+				// 没有更新
 			}
 			return "NOPassword";
 			// return PasswordDB(username, password, response); // 判断密码是否正确
