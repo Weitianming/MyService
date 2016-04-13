@@ -12,22 +12,22 @@
 		<servlet-class>com.example.main.HelloWorld</servlet-class>
 	</servlet>
 
-<!-- 	<servlet> -->
-<!-- 		<servlet-name>ChatService</servlet-name> -->
-<!-- 		<servlet-class>com.example.main.ChatService</servlet-class> -->
-<!-- 	</servlet> -->
+	<!-- <servlet> -->
+	<!-- <servlet-name>ChatService</servlet-name> -->
+	<!-- <servlet-class>com.example.main.ChatService</servlet-class> -->
+	<!-- </servlet> -->
 
-<!-- 	<servlet-mapping> -->
-<!-- 		<servlet-name>ChatService</servlet-name> -->
-<!-- 		<url-pattern>/ChatService</url-pattern> --> 
-<!-- 	</servlet-mapping> -->
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>ChatService</servlet-name> -->
+	<!-- <url-pattern>/ChatService</url-pattern> -->
+	<!-- </servlet-mapping> -->
 
 	<servlet-mapping>
 		<servlet-name>helloWorld</servlet-name>
 		<url-pattern>/greeting</url-pattern>
 	</servlet-mapping>
-	
-		<servlet-mapping>
+
+	<servlet-mapping>
 		<servlet-name>helloWorld</servlet-name>
 		<url-pattern>/HelloWorld</url-pattern>
 	</servlet-mapping>
