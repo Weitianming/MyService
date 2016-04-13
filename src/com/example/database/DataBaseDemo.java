@@ -16,6 +16,7 @@ public class DataBaseDemo {
 			if (PasswordDB(username, password)) {
 				return addDeviceId(username, deviceId); // 更新设备ID
 				// 没有更新
+				// 测试
 			}
 			return "NOPassword";
 			// return PasswordDB(username, password, response); // 判断密码是否正确
