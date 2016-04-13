@@ -11,10 +11,13 @@ public class DataBaseDemo {
 	static ResultSet ret = null;
 
 	// 登录账号
-	public String LoginDB(String username, String password,
-			HttpServletResponse response) {
+	public String LoginDB(String username, String password, String deviceId) {
 		if (RegistrQuery(username, password)) { // 该账号存在
-			return PasswordDB(username, password, response); // 判断密码是否正确
+			if (PasswordDB(username, password)) {
+				return addDeviceId(username, deviceId); // 更新设备ID
+			}
+			return "NOPassword";
+			// return PasswordDB(username, password, response); // 判断密码是否正确
 		}
 		return "NO";
 	}
@@ -49,8 +52,7 @@ public class DataBaseDemo {
 	}
 
 	// 查询密码是否正确
-	private String PasswordDB(String username, String password,
-			HttpServletResponse resp) {
+	private boolean PasswordDB(String username, String password) {
 		sql = "select * from account where phone = '" + username + "'";// SQL语句
 		db1 = new DBHelper("myclient");// 创建DBHelper对象
 
@@ -60,7 +62,8 @@ public class DataBaseDemo {
 				System.out.println(ret.getString(2));
 				if (ret.getString(2).equals(password)) {
 
-					return "OK";
+					return true;
+					// return "OK";
 				}
 			}
 			ret.close();
@@ -68,7 +71,8 @@ public class DataBaseDemo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "NOPassword";
+		return false;
+		// return "NOPassword";
 	}
 
 	// 注册账号信息
@@ -79,11 +83,29 @@ public class DataBaseDemo {
 			if ((db1.st.executeUpdate("insert into account values('" + username
 					+ "', '" + password + "')")) == 1) { // 注册成功
 
-				db1.st.executeUpdate("create table " + username
+				db1.st.executeUpdate("create table "
+						+ username
 						+ "friends (name varchar(16) not null, age int null, state vachar(6) null)");
 				return "OK";
 			}
 			db1.close();// 关闭连接
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "NO";
+	}
+
+	// 保存、刷新deviceId
+	public String addDeviceId(String username, String deviceId) {
+		db1 = new DBHelper("myclient");// 创建DBHelper对象
+
+		try {
+			if (db1.st.executeUpdate("update account set DeviceId = "
+					+ deviceId + "  where  phone = " + username) == 1) {
+				System.out.println("添加设备：" + deviceId);
+				return "OK";
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

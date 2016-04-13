@@ -12,11 +12,9 @@ import com.example.http.ConnectManager;
 public class JsonParam {
 	String string;
 	JSONObject jsonObject;
-	HttpServletResponse response;
 
 	public JSONObject Param(String string, HttpServletResponse response) {
 		this.string = string;
-		this.response = response;
 		JSONObject jsonObject = JsonAnalytical();
 
 		return jsonObject;
@@ -30,16 +28,16 @@ public class JsonParam {
 			if (jsonObject.getString("object").equals("login")) { // 登录请求
 				JSONObject object = new JSONObject(
 						jsonObject.getString("message"));
-				return new Connect().LoginResponse(new DataBaseDemo()
-						.LoginDB(object.getString("username"),
-								object.getString("password"), response));
+				return new Connect().LoginResponse(new DataBaseDemo().LoginDB(
+						object.getString("username"),
+						object.getString("password"), object.getString("deviceId")));
 
 			} else if (jsonObject.getString("object").equals("register")) { // 注册请求
 				JSONObject object = new JSONObject(
 						jsonObject.getString("message"));
-				return new Connect().RegisterResponse(new DataBaseDemo().RegistrDB(
-						object.getString("username"),
-						object.getString("password")));
+				return new Connect().RegisterResponse(new DataBaseDemo()
+						.RegistrDB(object.getString("username"),
+								object.getString("password")));
 
 			} else if (jsonObject.getString("object").equals("getAllUsersName")) { // 获取用户
 				JSONObject object = new JSONObject(

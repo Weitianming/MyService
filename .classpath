@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
@@ -20,7 +20,37 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/java框架/httpcomponents-client-4.5.1/lib/jna-4.1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/java框架/httpcomponents-client-4.5.1/lib/jna-platform-4.1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/java框架/mysql-connector-java/mysql-connector-java-5.1.26/mysql-connector-java-5.1.26-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/袁艺/Desktop/java框架/新浪云/sae-1.1.0-all.zip"/>
-	<classpathentry kind="lib" path="C:/Users/袁艺/Desktop/java框架/新浪云/sae-local-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-alidns"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-batchcompute"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-bss"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-cdn"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-cf"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-cms"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-commondriver"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-core"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-crm"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-cs"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-dm"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-drds"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ecs"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ess"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-green"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-httpdns"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-iot"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-mts"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ocs"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-oms"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ons"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ossadmin"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ots"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-push"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ram"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-rds"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ros"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-sample"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-slb"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-sts"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-ubsms"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/袁艺/Desktop/1/aliyun-java-sdk-yundun"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
