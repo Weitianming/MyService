@@ -117,19 +117,17 @@ public class DataBaseDemo {
 	// 查询DeviceId
 	public String QueryDeviceId (String receiver) {
 		db1 = new DBHelper("myclient");// 创建DBHelper对象
-		ResultSet resultSet;
+		ResultSet resultSet = null;
 		try {
 			resultSet = db1.st.executeQuery("select DeviceId from account where phone = '" + receiver +"'");
-//			resultSet.next();
-//			resultSet.getString(0);
-			
-			System.out.println("resultSet长度: "+resultSet.next());
-//			System.out.println("resultSet 0 " + resultSet.getString(0));
-			System.out.println("resultSet 1 " + resultSet.getString(1));
-			System.out.println("resultSet 2 " + resultSet.getString(2));
-			System.out.println("resultSet 3 " + resultSet.getString(3));
-			
-			return resultSet.getString(0);
+			return resultSet.getString(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			resultSet.close();
+			db1.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
