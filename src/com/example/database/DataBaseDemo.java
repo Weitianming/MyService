@@ -107,11 +107,33 @@ public class DataBaseDemo {
 				System.out.println("添加设备：" + deviceId);
 				return "OK";
 			}
-
+			db1.close();// 关闭连接
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return "NO";
+	}
+	
+	// 查询DeviceId
+	public String QueryDeviceId (String receiver) {
+		db1 = new DBHelper("myclient");// 创建DBHelper对象
+		ResultSet resultSet;
+		try {
+			resultSet = db1.st.executeQuery("select DeviceId from account where phone = '" + receiver +"'");
+//			resultSet.next();
+//			resultSet.getString(0);
+			
+			System.out.println("resultSet长度: "+resultSet.next());
+			System.out.println("resultSet 0 " + resultSet.getString(0));
+			System.out.println("resultSet 1 " + resultSet.getString(1));
+			System.out.println("resultSet 2 " + resultSet.getString(2));
+			
+			return resultSet.getString(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return "No";
 	}
 
 }

@@ -8,6 +8,7 @@ import java.net.Socket;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.database.DataBaseDemo;
 import com.example.database.UpdateState;
 import com.example.push.PushAndroid;
 
@@ -37,8 +38,11 @@ public class ConnectManager {
 	// 转发客户端之间的消息
 	public String Notice(String sender, String receiver, String content) {
 		
+		String a = new DataBaseDemo().QueryDeviceId(receiver);
+		
+		
 		try {
-			new PushAndroid().PushNoticeToAndroid(sender, receiver, content);
+			new PushAndroid().PushNoticeToAndroid(sender, a, content);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
