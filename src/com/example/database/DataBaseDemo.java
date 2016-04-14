@@ -120,6 +120,7 @@ public class DataBaseDemo {
 		ResultSet resultSet = null;
 		try {
 			resultSet = db1.st.executeQuery("select DeviceId from account where phone = '" + receiver +"'");
+			resultSet.next();
 			return resultSet.getString(1);
 		} catch (SQLException e) {
 			e.printStackTrace();
