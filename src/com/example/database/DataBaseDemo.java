@@ -124,9 +124,10 @@ public class DataBaseDemo {
 //			resultSet.getString(0);
 			
 			System.out.println("resultSet³¤¶È: "+resultSet.next());
-			System.out.println("resultSet 0 " + resultSet.getString(0));
+//			System.out.println("resultSet 0 " + resultSet.getString(0));
 			System.out.println("resultSet 1 " + resultSet.getString(1));
 			System.out.println("resultSet 2 " + resultSet.getString(2));
+			System.out.println("resultSet 3 " + resultSet.getString(3));
 			
 			return resultSet.getString(0);
 		} catch (SQLException e) {
