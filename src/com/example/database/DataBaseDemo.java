@@ -102,8 +102,8 @@ public class DataBaseDemo {
 		db1 = new DBHelper("myclient");// 创建DBHelper对象
 
 		try {
-			if (db1.st.executeUpdate("update account set DeviceId = "
-					+ deviceId + "  where  phone = " + username) == 1) {
+			if (db1.st.executeUpdate("update account set DeviceId = '"
+					+ deviceId + "'  where  phone = '" + username + "'") == 1) {
 				System.out.println("添加设备：" + deviceId);
 				return "OK";
 			}
