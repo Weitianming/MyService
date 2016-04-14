@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.database.UpdateState;
+import com.example.push.PushAndroid;
 
 public class ConnectManager {
 	private PrintWriter writer;
@@ -35,23 +36,36 @@ public class ConnectManager {
 
 	// 转发客户端之间的消息
 	public String Notice(String sender, String receiver, String content) {
-		JSONObject object = new JSONObject();
+		
 		try {
-			object.put("sender", sender);
-			object.put("content", content);
-			jsonObject.put("object", "notice");
-			jsonObject.put("message", object);
-
-			if (send(receiver, jsonObject)) {
-				return "Ok";
-			} else {
-				return "No";
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+			new PushAndroid().PushNoticeToAndroid(sender, receiver, content);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
+		
+		
+		
+		
+//		JSONObject object = new JSONObject();
+//		try {
+//			object.put("sender", sender);
+//			object.put("content", content);
+//			jsonObject.put("object", "notice");
+//			jsonObject.put("message", object);
+//
+//			if (send(receiver, jsonObject)) {
+//				return "Ok";
+//			} else {
+//				return "No";
+//			}
+//		} catch (JSONException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 
 		return "No";
 	}
