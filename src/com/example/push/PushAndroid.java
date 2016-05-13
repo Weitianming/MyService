@@ -11,6 +11,7 @@ import com.aliyuncs.push.model.v20150827.PushNoticeToAndroidResponse;
 
 public class PushAndroid {
 	long appKey = 23343518;
+	String asd = "asd";
 
 	/**
 	 * 向Android推送消息
