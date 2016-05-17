@@ -40,6 +40,7 @@ public class ConnectManager {
 	public String Notice(String sender, String receiver, String content) {
 
 		String DeviceId = new DataBaseDemo().QueryDeviceId(receiver);
+		DeviceId = "2270d39f46b548c983b88cd150100ba9";
 
 		try {
 
