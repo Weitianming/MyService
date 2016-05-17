@@ -1,15 +1,10 @@
 package com.example.push;
-
-import com.aliyuncs.AcsRequest;
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.profile.DefaultProfile;
-import com.aliyuncs.profile.IClientProfile;
 import com.aliyuncs.push.model.v20150827.PushMessageToAndroidRequest;
 import com.aliyuncs.push.model.v20150827.PushMessageToAndroidResponse;
 import com.aliyuncs.push.model.v20150827.PushNoticeToAndroidRequest;
 import com.aliyuncs.push.model.v20150827.PushNoticeToAndroidResponse;
 
-public class PushAndroid {
+public class PushAndroid extends BaseTest {
 	long appKey = 23343518;
 
 	/**
@@ -26,18 +21,26 @@ public class PushAndroid {
 	 * 向Android推送通知
 	 */
 	public void PushNoticeToAndroid(String sender, String receiver, String content) throws Exception {
-		IClientProfile clientProfile = DefaultProfile.getProfile("cn-hangzhou", "KzuqnYKPlkUZb4PS", "EH91BgTQYavkawQNlhTw1in8S2X9jm ");
-		DefaultAcsClient client = new DefaultAcsClient(clientProfile);
 		
+		System.out.println("向Android推送通知");
 		
 		PushNoticeToAndroidRequest androidRequest = new PushNoticeToAndroidRequest();
-        androidRequest.setAppKey(appKey);
-        androidRequest.setTitle(sender); // 发送者
-		androidRequest.setTarget(receiver); // 接收者
-        androidRequest.setSummary(content); // 发送内容
-		
+        androidRequest.setAppKey(appKey); //AppKey信息
+        androidRequest.setTarget("device"); // 推送目标
+        androidRequest.setTargetValue("2270d39f46b548c983b88cd150100ba9"); // 根据Target来设定
+        androidRequest.setTitle(sender); // 发送的通知标题
+        androidRequest.setSummary(content); // 发送的通知内容
+        
+        
+//        androidRequest.setTitle(sender); // 发送者
+//		androidRequest.setTarget(receiver); // 接收者
+//        androidRequest.setTarget(sender); // 接收者
+//        androidRequest.setSummary(content); // 发送内容
+        
 		PushNoticeToAndroidResponse androidResponse = client.getAcsResponse(androidRequest);
-
+        System.out.printf("RequestId: %s, ResponseId: %s, message: %s\n",
+        		androidResponse.getRequestId(), androidResponse.getResponseId(), androidResponse.getMessage());
+        
 	}
 
 }

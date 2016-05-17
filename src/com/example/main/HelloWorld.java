@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import com.example.push.BaseTest;
+
 public class HelloWorld extends HttpServlet {
 	JSONObject jsonObject;
 
@@ -87,6 +89,13 @@ public class HelloWorld extends HttpServlet {
 	public void init() throws ServletException {
 		new ChatServer().start();
 		System.out.println("init");
+		
+		try {
+			new BaseTest().beforeClass();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	// @Override
