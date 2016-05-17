@@ -40,7 +40,7 @@ public class ConnectManager {
 	public String Notice(String sender, String receiver, String content) {
 
 		String DeviceId = new DataBaseDemo().QueryDeviceId(receiver);
-		DeviceId = "2270d39f46b548c983b88cd150100ba9";
+//		DeviceId = "2270d39f46b548c983b88cd150100ba9";
 
 		try {
 
@@ -49,7 +49,7 @@ public class ConnectManager {
 						content);
 			} else {
 				new PushAndroid()
-						.PushNoticeToAndroid(sender, DeviceId, content); // 不在线发送推送
+						.PushNoticeToAndroid(sender, DeviceId, content); // 离线发送推送
 			}
 
 		} catch (Exception e) {

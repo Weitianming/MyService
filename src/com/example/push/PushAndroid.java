@@ -20,7 +20,7 @@ public class PushAndroid extends BaseTest {
 		androidRequest.setAppKey(HttpURL.appKey); // AppKey信息
 		androidRequest.setTarget("device"); // 推送目标
 		androidRequest.setTargetValue(receiver); // 根据Target来设定
-		androidRequest.setMessage(content); // 发送的消息内容
+		androidRequest.setMessage(sender+"/"+content); // 发送的消息内容
 
 		PushMessageToAndroidResponse androidResponse = client
 				.getAcsResponse(androidRequest);
