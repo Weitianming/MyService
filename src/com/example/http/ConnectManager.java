@@ -10,13 +10,14 @@ import org.json.JSONObject;
 
 import com.example.database.DataBaseDemo;
 import com.example.database.UpdateState;
+import com.example.push.DeviceInfoDemoTest;
 import com.example.push.PushAndroid;
 
 public class ConnectManager {
 	private PrintWriter writer;
 	private JSONObject jsonObject = new JSONObject();
 	private Socket socket;
-	
+
 	public ConnectManager() {
 	}
 
@@ -37,39 +38,40 @@ public class ConnectManager {
 
 	// 转发客户端之间的消息
 	public String Notice(String sender, String receiver, String content) {
-		
-		String a = new DataBaseDemo().QueryDeviceId(receiver);
-		
-		
+
+		String DeviceId = new DataBaseDemo().QueryDeviceId(receiver);
+
 		try {
-			new PushAndroid().PushNoticeToAndroid(sender, a, content);
+
+			if (new DeviceInfoDemoTest().testGetDeviceInfos(DeviceId)) { // 该ID在线发送消息
+				new PushAndroid().PushMessageToAndroid(sender, DeviceId,
+						content);
+			} else {
+				new PushAndroid()
+						.PushNoticeToAndroid(sender, DeviceId, content); // 不在线发送推送
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
-		
-//		JSONObject object = new JSONObject();
-//		try {
-//			object.put("sender", sender);
-//			object.put("content", content);
-//			jsonObject.put("object", "notice");
-//			jsonObject.put("message", object);
-//
-//			if (send(receiver, jsonObject)) {
-//				return "Ok";
-//			} else {
-//				return "No";
-//			}
-//		} catch (JSONException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+
+		// JSONObject object = new JSONObject();
+		// try {
+		// object.put("sender", sender);
+		// object.put("content", content);
+		// jsonObject.put("object", "notice");
+		// jsonObject.put("message", object);
+		//
+		// if (send(receiver, jsonObject)) {
+		// return "Ok";
+		// } else {
+		// return "No";
+		// }
+		// } catch (JSONException e) {
+		// e.printStackTrace();
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
 
 		return "No";
 	}
