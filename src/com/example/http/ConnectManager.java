@@ -48,11 +48,13 @@ public class ConnectManager {
 		try {
 
 			if (new DeviceInfoDemoTest().testGetDeviceInfos(DeviceId)) { // 该ID在线发送消息
+				System.out.println("消息");
 				new PushAndroid().PushMessageToAndroid(sender, DeviceId,
 						content);
-				new PushAndroid()
-				.PushNoticeToAndroid(sender, DeviceId, content); // 离线发送推送
+//				new PushAndroid()
+//				.PushNoticeToAndroid(sender, DeviceId, content); // 离线发送推送
 			} else {
+				System.out.println("通知");
 				new PushAndroid()
 						.PushNoticeToAndroid(sender, DeviceId, content); // 离线发送推送
 			}
