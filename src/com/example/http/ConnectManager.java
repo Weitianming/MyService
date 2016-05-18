@@ -40,16 +40,18 @@ public class ConnectManager {
 	public String Notice(String sender, String receiver, String content) {
 
 		String DeviceId = new DataBaseDemo().QueryDeviceId(receiver);
-//		DeviceId = "2270d39f46b548c983b88cd150100ba9";
+		DeviceId = "2270d39f46b548c983b88cd150100ba9";
 		
-		System.out.println("指定的ID号："+DeviceId);
+//		System.out.println("指定的ID号："+DeviceId);
 		
 
 		try {
 
 			if (new DeviceInfoDemoTest().testGetDeviceInfos(DeviceId)) { // 该ID在线发送消息
-				new PushAndroid().PushMessageToAndroid(sender, DeviceId,
-						content);
+//				new PushAndroid().PushMessageToAndroid(sender, DeviceId,
+//						content);
+				new PushAndroid()
+				.PushNoticeToAndroid(sender, DeviceId, content); // 离线发送推送
 			} else {
 				new PushAndroid()
 						.PushNoticeToAndroid(sender, DeviceId, content); // 离线发送推送
