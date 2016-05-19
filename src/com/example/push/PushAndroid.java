@@ -11,9 +11,8 @@ public class PushAndroid extends BaseTest {
 	/**
 	 * 向Android推送消息
 	 */
-	public void PushMessageToAndroid(String sender, String receiver,
+	public String PushMessageToAndroid(String sender, String receiver,
 			String content) throws Exception {
-		
 		System.out.println("向Android推送消息");
 		
 		PushMessageToAndroidRequest androidRequest = new PushMessageToAndroidRequest();
@@ -27,12 +26,13 @@ public class PushAndroid extends BaseTest {
 		System.out.printf("RequestId: %s, ResponseId: %s, message: %s\n",
 				androidResponse.getRequestId(),
 				androidResponse.getResponseId(), androidResponse.getMessage());
+		return androidResponse.getResponseId();
 	}
 
 	/**
 	 * 向Android推送通知
 	 */
-	public void PushNoticeToAndroid(String sender, String receiver,
+	public String PushNoticeToAndroid(String sender, String receiver,
 			String content) throws Exception {
 
 		System.out.println("向Android推送通知");
@@ -49,6 +49,7 @@ public class PushAndroid extends BaseTest {
 		System.out.printf("RequestId: %s, ResponseId: %s, message: %s\n",
 				androidResponse.getRequestId(),
 				androidResponse.getResponseId(), androidResponse.getMessage());
+		return androidResponse.getResponseId();
 
 	}
 

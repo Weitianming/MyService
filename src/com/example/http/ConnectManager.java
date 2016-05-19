@@ -38,7 +38,7 @@ public class ConnectManager {
 
 	// 转发客户端之间的消息
 	public String Notice(String sender, String receiver, String content) {
-
+		String string = null;
 		String DeviceId = new DataBaseDemo().QueryDeviceId(receiver);
 //		DeviceId = "2270d39f46b548c983b88cd150100ba9";
 		
@@ -49,37 +49,21 @@ public class ConnectManager {
 
 			if (new DeviceInfoDemoTest().testGetDeviceInfos(DeviceId)) { // 该ID在线发送消息
 				System.out.println("消息");
-				new PushAndroid().PushMessageToAndroid(sender, DeviceId,
+				string = new PushAndroid().PushMessageToAndroid(sender, DeviceId,
 						content);
-//				new PushAndroid()
-//				.PushNoticeToAndroid(sender, DeviceId, content); // 离线发送推送
 			} else {
 				System.out.println("通知");
-				new PushAndroid()
+				string = new PushAndroid()
 						.PushNoticeToAndroid(sender, DeviceId, content); // 离线发送推送
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		// JSONObject object = new JSONObject();
-		// try {
-		// object.put("sender", sender);
-		// object.put("content", content);
-		// jsonObject.put("object", "notice");
-		// jsonObject.put("message", object);
-		//
-		// if (send(receiver, jsonObject)) {
-		// return "Ok";
-		// } else {
-		// return "No";
-		// }
-		// } catch (JSONException e) {
-		// e.printStackTrace();
-		// } catch (IOException e) {
-		// e.printStackTrace();
-		// }
+		
+		if (!string.equals("") && string != null) {
+			return "Ok";
+		}
 
 		return "No";
 	}
