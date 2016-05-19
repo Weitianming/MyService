@@ -61,6 +61,8 @@ public class ConnectManager {
 			e.printStackTrace();
 		}
 		
+		System.out.println(string);
+		
 		if (!string.equals("") && string != null) {
 			return "Ok";
 		}
