@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<meta content="red" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/fastclick.js"></script>
+		<script type="text/javascript" src="js/bass.js"></script>
+		<title>登录</title>
+
+	</head>
+
+	<body>
+
+		<script>
+			$(function() {
+				FastClick.attach(document.body); // 去除手机端300毫秒延迟
+			});
+
+			var login = {
+				changeUser: function() {
+					var userVal = $.trim($(".login_user").val());
+					var user = $(".login_user_img");
+					if(userVal != '') {
+						$(user).show();
+					} else {
+						$(user).hide();
+					}
+				},
+				changePassword: function() {
+					var passwordVal = $.trim($(".login_password").val());
+					var pass = $(".login_pass_img");
+					javascript: ;
+					if(passwordVal != '') $(pass).show();
+					else $(pass).hide();
+				}
+			}
+
+			$(function() {
+				$(".login_user_img").on("click", function() {
+					$(".login_user").val("");
+					$(this).hide();
+				});
+				$(".login_pass_img").on("click", function() {
+					$(".login_password").val("");
+					$(this).hide();
+				});
+
+				$("#login_submit").on("click", function() {
+					doGet('/login/doMobileLogin', function(data) {
+						if(data.message == '登录成功!') {
+							localStorage.setItem("login", JSON.stringify(data)); // 缓存用户信息
+							window.location.href = "index.html";
+						} else {
+							alert(data.message);
+						}
+					}, $(".login_form").serialize());
+				});
+
+			})
+		</script>
+		<div class="login">
+			<div class="header">
+				<img src="img/Resources/image/car_easy_driver_top.png" alt="公务用车易驾驶员" style="width:100%;height:auto;">
+			</div>
+			<div class="weui_cells weui_cells_form login_module">
+				<form class="login_form">
+					<div class="weui_cell">
+						<div class="weui_cell_bd">
+							<input class="login_input login_user" type="text" name="username" placeholder="请输入用户名" oninput="login.changeUser()" onfocus="login.changeUser()" value="18700000001">
+						</div>
+						<img class="login_user_img" src="img/Resources/img_scheduled_bus_delete_s.png">
+					</div>
+					<div class="weui_cell">
+						<div class="weui_cell_bd">
+							<input class="login_input login_password" type="password" name="password" placeholder="请输入密码" oninput="login.changePassword()" onfocus="login.changePassword()" value="9959599yi">
+						</div>
+						<img class="login_pass_img" src="img/Resources/img_scheduled_bus_delete_s.png">
+					</div>
+					<div class="forgetPassword">
+						<a href="mima.html">忘记密码？</a>
+					</div>
+					<a href="javascript:;" id="login_submit" class="weui_btn weui_btn_primary btn_sty1">登录</a>
+					<a href="javascript:;" class="weui_btn weui_btn_default">注册</a>
+				</form>
+			</div>
+		</div>
+
+	</body>
+
+</html>

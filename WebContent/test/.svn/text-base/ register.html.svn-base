@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--谷歌内核-->
+		<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title></title>
+		<link rel="stylesheet" href="css/weui.min.css" />
+		<link rel="stylesheet" href="css/jquery-weui.min.css" />
+		<link rel="stylesheet" href="css/demos.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		
+	</head>
+	<body>
+	<script>
+		var Register = {
+					Register_ID: function() {
+						var Realname = $.trim($("#realname").val());
+						var Password = $.trim($("#password").val());
+						var Confirmpass = $.trim($("#confirmpass").val());
+						var Phone = $.trim($("#phone").val());
+						var Code = $.trim($("#code").val());
+						if(Realname === '') alert('请输入真实姓名');
+						else if(Password === '') alert('请输入密码');
+						else if(Password === '') alert('请输入确认密码');
+						else if(Password === '') alert('请输入手机号');
+						else if(Password != Confirmpass) alert('两次输入的密码不一致');
+						else {
+						$.ajax({
+						type:"get",
+						url:"http://127.0.0.1:3500/login/doMobileRegister?",
+						data:$(".form_register").serialize(),
+						async:true,
+						dataType:'json',
+						success:function(data){
+							if(data.message=='注册成功!')
+							{
+								window.location.href="index.html";
+							}
+							else if(JSON.stringify(data.result) == '"fail"'){
+								console.log(JSON.stringify(data));
+								alert(data.message);
+							}
+							
+						}
+					});
+					}
+						},
+					
+					Register_code: function(){
+						var Phone = $.trim($("#phone").val());
+						$.ajax({
+						 type:"get",
+						 url:"http://127.0.0.1:3500/login/doSendMessage?sendphone=" + Phone,
+                        dataType:'json',
+                        success:function(data){
+                        	console.log(JSON.stringify(data));
+                        }
+						})
+					}
+		
+					
+					
+					
+					
+				}
+					
+					$(document).ready(function() {
+						$("#register").on("click", function() {
+							Register.Register_ID();
+
+						})
+						$("#code_btn").on("click", function() {
+							Register.Register_code();
+
+						})
+						
+					})
+	</script>
+	<div class="password">
+			<div class="weui_cells weui_cells_form">
+				<form class="form_register">
+					<div class="weui_cell">
+						<div class="weui_cell_hd"><label class="weui_label">真实姓名：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input class="weui_input" id="realname" name="realname" type="tel" placeholder="请填写注册的真实姓名">
+						</div>
+					</div>
+					<div class="weui_cell">
+						<div class="weui_cell_hd"><label class="weui_label">密码：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input class="weui_input" type="password" id="password" name="password" placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="weui_cell">
+						<div class="weui_cell_hd"><label class="weui_label">确认密码：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input class="weui_input" type="tel" id="phone" name="phone" placeholder="请确认密码">
+						</div>
+					</div>
+					<div class="weui_cell">
+						<div class="weui_cell_hd"><label class="weui_label">手机号码：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input class="weui_input" type="tel" id="phone" name="phone" placeholder="请输入您的的手机号码">
+						</div>
+					</div>
+					<div class="weui_cell weui_vcode">
+						<div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input class="weui_input" type="number" id="code" name="code" placeholder="请输入验证码">
+						</div>
+						<div class="weui_cell_ft">
+							<div class="code"><input type="button" class="code_btn" id="code_btn" value="获取验证码" /></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<a href="javascript:;" class="weui_btn weui_btn_default register" id="register">注册</a>
+	</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>业绩</title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta content="red" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css"/>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-weui.min.js"></script>
+		<script src="js/yeji.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="yeji" class="grey">
+			<div class="yeji-nav c">
+				<div>最近一周累计里程(km)</div>
+				<div class="totalmile">0</div>
+				<div>累计积分:<span class="jifen">0</span></div>
+			</div>
+			<div id="height"></div>
+			<div class="yeji-menu">
+				<div class="weui-pull-to-refresh-layer">
+					<div class="pull-to-refresh-arrow"></div>
+					<!-- 上下拉动的时候显示的箭头 -->
+					<div class="pull-to-refresh-preloader"></div>
+					<!-- 正在刷新的菊花 -->
+					<div class="down">下拉刷新</div>
+					<!-- 下拉过程显示的文案 -->
+					<div class="up">释放刷新</div>
+					<!-- 下拉超过50px显示的文案 -->
+					<div class="refresh">正在刷新...</div>
+					<!-- 正在刷新时显示的文案 -->
+				</div>
+				<div id="yeji-menu">
+					<div class="menu-nav">
+						NO.<span class="sn">14M344016161104002</span><span class="mile">0km</span>
+					</div>
+					<div class="menu-info">
+						<div class="info">
+							<div class="info-user">
+								<img class="head-image" src="../qwe/123.jpg" alt="" width="50px" height="50px">
+								<div class="car-info">
+									<span class="carno">皖A76844</span>
+									<span class="startusetime">2016-11-04 09:59 周五</span>
+								</div>
+								<div class="user-info">
+									用车人：
+									<span class="useperson">周晓燕</span> (
+									<span class="phone">18600000004</span> )
+									<div class="tel"></div>
+								</div>
+							</div>
+							<div class="info-place">
+								<div>
+									<div class="upplace-img"></div><span class="upplace">中国科学院合肥分院</span></div>
+								<div>
+									<div class="downplace-img"></div><span class="downplace">十里庙</span></div>
+							</div>
+						</div>
+						<div class="info-hide">
+							<div class="hide-organ">
+								申请人单位:<span class="organ">C省教育厅</span>
+							</div>
+							<div class="hide-usecarInfo">
+								用车人数:<span class="renshu">1</span> 用车时长:
+								<span class="days">10小时</span>
+								<div class="guiji"></div>
+							</div>
+							<div class="hide-endtime">
+								结束时间
+								<span class="endtime">2016-11-08 11:16:49</span>
+							</div>
+							<div class="beizhu">
+								备注: <span class="beizhu"></span>
+							</div>
+						</div>
+						<div class="haoping c">
+							<div class="more"></div>
+							<span class="haoping-num">2</span>
+							<span>您的订单获得了好评-</span>
+						</div>
+					</div>
+				</div>
+				<div id="yeji-menu">
+					<div class="menu-nav">
+						NO.<span class="sn">14M344016161104002</span><span class="mile">0km</span>
+					</div>
+					<div class="menu-info">
+						<div class="info">
+							<div class="info-user">
+								<img class="head-image" src="../qwe/123.jpg" alt="" width="50px" height="50px">
+								<div class="car-info">
+									<span class="carno">皖A76844</span>
+									<span class="startusetime">2016-11-04 09:59 周五</span>
+								</div>
+								<div class="user-info">
+									用车人：
+									<span class="useperson">周晓燕</span> (
+									<span class="phone">18600000004</span> )
+									<div class="tel"></div>
+								</div>
+							</div>
+							<div class="info-place">
+								<div>
+									<div class="upplace-img"></div><span class="upplace">中国科学院合肥分院</span></div>
+								<div>
+									<div class="downplace-img"></div><span class="downplace">十里庙</span></div>
+							</div>
+						</div>
+						<div class="info-hide">
+							<div class="hide-organ">
+								申请人单位:<span class="organ">C省教育厅</span>
+							</div>
+							<div class="hide-usecarInfo">
+								用车人数:<span class="renshu">1</span> 用车时长:
+								<span class="days">10小时</span>
+								<div class="guiji"></div>
+							</div>
+							<div class="hide-endtime">
+								结束时间
+								<span class="endtime">2016-11-08 11:16:49</span>
+							</div>
+							<div class="beizhu">
+								备注: <span class="beizhu"></span>
+							</div>
+						</div>
+						<div class="haoping c">
+							<div class="more"></div>
+							<span class="haoping-num">2</span>
+							<span>您的订单获得了好评-</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.more').click(function() {
+					$(this).toggleClass('active');
+					$(this).parents('.menu-info').children('.info-hide').slideToggle();
+				});
+				$('.yeji-menu').pullToRefresh();
+				$('.yeji-menu').on("pull-to-refresh", function() {
+					
+				});
+				$('.yeji-menu').pullToRefreshDone();
+			});
+		</script>
+
+	</body>
+
+</html>

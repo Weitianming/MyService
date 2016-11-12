@@ -1,0 +1,39 @@
+$(document).ready(function() {
+	$(".weui_cell.aboutUs").click(function() {
+		$("#123").popup();
+	});
+	$(".weui_cell.exit").click(function() {
+		$.actions({
+			title: ["确定要退出登录吗？"],
+			actions: [{
+				text: "退出登录",
+				className: "color-danger",
+				onClick: function() {
+					window.location.href = "login.html";
+				}
+			}]
+		});
+	});
+	$(".weui_cell.head").click(function() {
+		$.ajax({
+			type: "get",
+			url: "http://36.33.24.135:7575/login/doMobileLogin?username=15200000000&password=000000",
+			async: true,
+			dataType: "json",
+
+			success: function(data) {
+				console.log(data);
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				console.log('status  ' + XMLHttpRequest.status);
+				console.log('readyState  ' + XMLHttpRequest.readyState);
+				console.log('textStatus  ' + textStatus);
+			},
+
+		});
+
+	});		
+});
+
+
+ 

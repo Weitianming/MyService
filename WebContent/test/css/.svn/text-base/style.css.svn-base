@@ -1,0 +1,322 @@
+.weui_cells.weui_cells_access.tittle{
+	margin-top: 0.5rem;
+	line-height: 3rem;
+}
+.head-icon{
+	width: 2.5rem;
+}
+.weui_cell_bd.weui_cell_primary{
+	padding-left: 1.3rem;
+}
+/*任务导航*/
+.daohang{
+	margin-top: 0.45rem;
+}.weizhang{
+	margin-top: 0.05rem;
+}
+.jiayou{
+	margin-top: 0.4rem;
+}
+.kuaixiu{
+	width: 50px;
+	height: 60px;
+}
+.weui_navbar.header{
+	position:relative;
+}
+.weui_navbar.header>a{
+	background: rgb(55,183,247)!important;
+	color: white;
+}
+#tab1{
+	z-index: 100;
+}
+#tab1 .weui-row{
+	margin-top: 1rem;
+}
+#tab1 .weui-row .weui-col-25{
+	text-align: center;
+}
+#tab1 .mission{
+	margin-top: 1rem;
+	padding-left: 0.6rem;
+}
+#tab1 .mission-num{
+	color: red;
+}
+.weui_btn.aboutUs{
+	margin: 2rem 0.5rem 0 0.5rem;
+}
+.mission-now{
+	text-align: center;
+	color: rgb(235,235,241);
+}
+.fresh{
+	width: 70%;
+	background: rgb(235,235,241)!important;
+	text-align: center;
+}
+.weui_tab_bd{
+	padding-bottom: 0!important;
+}
+
+.weui_navbar{z-index: 10!important;}
+.user-input{
+		width: 100%;
+		height: 10rem;
+}
+
+.weui_tabbar.car-easy{
+	z-index: 1;
+	position: fixed;
+}
+#ui-view{
+	height: 870px;
+}
+#use-view{height: 870px}
+.grey{
+	background: rgb(235,235,241)!important;
+}
+.weui_cells.weui_cells_form{
+	margin: 0 0.5rem;
+}
+#changepass{
+	margin: 1rem 0.5rem;
+}
+.img{
+padding-left: 20%;	
+}
+.weui_cells_title.suggestion{
+	margin-top: 0;
+}
+
+
+/*修改密码*/
+.changeKey-area{
+	padding-top: 1.5rem;
+	height: 862px}
+.change-key>.weui_cell{
+	border-left: 1px solid #D9D9D9;
+	border-right: 1px solid #D9D9D9}
+.change-key>.weui_cell:first-child{border-top: 1px solid #D9D9D9}
+.change-key>.weui_cell:last-child{border-bottom: 1px solid #D9D9D9}
+.weui_cells.weui_cells_form.change-key{margin: 0 0.5rem 1rem 0.5rem}
+
+/*底部导航*/
+.weui_tabbar_item.weui_bar_item_on>.weui_tabbar_label {color: #10aeff}
+.weui_tabbar_item>.task-icon{background-image: url('../img/Resources/image/tab_comprehensive_icon.png');background-size:24px auto}
+.weui_tabbar_item.weui_bar_item_on>.task-icon{background-image: url('../img/Resources/image/tab_comprehensive_pressed_icon.png');background-size:24px auto}
+.weui_tabbar_item>.administrator-icon{
+	background-image: url('../img/Resources/image/tab_found_icon.png');
+	background-size:24px auto;
+}
+.weui_tabbar_item.weui_bar_item_on>.administrator-icon{
+	background-image: url('../img/Resources/image/tab_found_pressed_icon.png');
+	background-size:24px auto;
+}
+.weui_tabbar_item>.mine-icon{
+	background-image: url('../img/Resources/image/tab_me_icon.png');
+	background-size:24px auto;
+}
+.weui_tabbar_item.weui_bar_item_on>.mine-icon{
+	background-image: url('../img/Resources/image/tab_me_pressed_icon.png');
+	background-size:24px auto;
+}
+
+/*业绩功能*/
+#height{
+	height: 10rem;
+	position: relative;
+}
+#yeji{
+height: auto;
+	width: 100%;
+}
+.yeji-nav{
+	height: 10rem;
+	position: fixed;
+	color: #fff;
+	background-color: #10aeff;
+	width: 100%;
+	padding-left: 1rem;
+	z-index: 10;
+}
+.yeji-nav>div{
+	height: 33.3333%;
+}
+.yeji-nav>div:first-child{
+	font-size: 1.3rem;
+	line-height: 3.33333rem;
+}
+.yeji-nav>.totalmile{
+	font-size: 3.5rem;
+	line-height: 3.33333rem;
+}
+.yeji-nav>div:last-child{
+	padding-top: 1.4rem;
+}
+#yeji-menu{
+	position: relative;
+	background-color: #fff;
+	font-size: 0.8rem;
+	margin-bottom: 0.5rem;
+}
+.menu-nav{
+	padding: 0.5rem;
+	border-bottom: 1px solid rgb(165,165,165);
+}
+.mile{
+	float: right;
+	color: red;
+}
+.info{
+	margin-top: 0.5rem;
+	padding-top: 0.5rem;
+	background-color: rgb(245,245,245);
+	padding: 0.5rem;
+	margin-bottom: 0.2rem;
+}
+.head-image{
+	float: left;
+	margin-right: 1rem;
+}
+.user-info{
+	margin-top: 1rem;
+}
+.startusetime{
+	float: right;
+	margin-right: 2rem;
+}
+.tel{
+	float: right;
+	background-image: url(../img/Resources/car_easy_tel.png);
+	width: 30px;
+	height: 30px;
+	background-size: 30px auto;
+	background-repeat:no-repeat
+}
+.info-place{
+	padding-left: 1rem;
+	margin-top: 1rem;
+}
+.info-place>div:last-child{
+	margin-top: 0.5rem;
+}
+.upplace-img,
+.downplace-img{
+	width: 15px;
+	height: 15px;
+	float: left;
+	margin-top: 0.15rem;
+	margin-right: 0.8rem;
+}
+.upplace-img{
+	background: url(../img/Resources/image/09.png);
+	background-size: 15px auto;
+}
+.downplace-img{
+	background: url(../img/Resources/image/10.png);
+	background-size: 15px auto;
+}
+.info-hide{
+	display: none;
+	background-color: rgb(245,245,245);
+}
+.info-hide{
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+.info-hide>div{
+	margin: 0.3rem 0;
+}
+.info-hide>div.hide-usecarInfo{
+	margin-top: 0.5rem;
+}
+.renshu{
+	margin-right: 3rem;
+}
+.guiji{
+	float: right;
+	background: url(../img/Resources/car_easy_guiji.png);
+	background-size: 40px auto;
+	width: 40px;
+	height: 20px;
+	background-repeat: no-repeat;
+}
+.haoping>div,
+.haoping>span{
+	float: right;
+}
+.haoping{
+	padding-right: 0.5rem;
+	color: rgb(175,175,175);
+}
+.haoping>.more{
+	float: right;
+	background: url(../img/Resources/image/29.png);
+	background-size: 20px auto;
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	margin-left: 1rem;
+}
+.haoping>.more.active{
+	background-image: url(../img/Resources/image/29_1.png);
+}
+.c {*zoom:1;}
+.c:after {content:'';display:block;clear:both;height:0px;}
+
+/*管理功能*/
+.weui_grids.manage{
+	padding: 0 1.5rem;
+	border: none;
+}
+.weui_grids.manage:before{border: none}
+.weui_grid.js_grid{
+	background: #fff;
+	height: 6rem;
+	border: 2px solid rgb(235,235,241);
+}
+.weui_grid.js_grid .weui_grid_label{
+	font-size: 80%
+}
+.grey .weui_grid_icon{
+	width: 3rem;
+	height: 3rem;
+}
+
+
+/*忘记密码*/
+.password{ margin: 5px; border:1px solid #aaaaaa;}
+.code { float: right; margin: 4px 0;}
+.code_btn{background:#16a4d6;  border: 0; 
+    -webkit-appearance: none;  color: #fff; border: none; padding: 10px 15px;}
+.weui_cell_bd.weui_cell_primary{ padding-left: 0;}
+.weui_label{width: 86px;}
+.code_color{ background: #16a4d6; margin-top: 15px; width: 94%; }
+.weui_btn_primary.code_color:not(.weui_btn_disabled):active {
+    background: #17ace1;
+}
+
+/*登录页面*/
+.login {max-width:800px!important;margin:0 auto;}
+.login .login-module{margin:0 1rem;}
+.login_module .weui_cell:before{border-top:0px;}
+.login_module .weui_cells:after, .login .weui_cells:before{border-top:0px;}
+.login_module .weui_cell{padding:10px 0; width:100%;}
+.login_module .weui_cell_bd{width:97.5%;}
+.login_module .login_input input::-webkit-inner-spin-button {-webkit-appearance: none;}
+.login_module .login_input input::-webkit-outer-spin-button {-webkit-appearance: none;}
+.login_module .login_input{width:100%;border-radius: 3px;line-height: 16px;padding: 12px 0px 12px 2%;font-size: 14px; }
+.login_module .login_input{border:1px solid #ccc;color:#595959;vertical-align:middle;-webkit-box-shadow:0 1px 0 #ececec inset;-moz-box-shadow:0 1px 0 #ececec inset;-ms-box-shadow:0 1px 0 #ececec inset;-o-box-shadow:0 1px 0 #ececec inset;box-shadow:0 1px 0 #ececec inset;}
+.login_module .login_input:hover{border:1px solid #12b8f6}
+.login_module .login_input:focus,.login_module .login_input:active{background-color:#fff;border-color:#69c5dd;-webkit-box-shadow:0 0 2px #6ed1f6;-moz-box-shadow:0 0 2px #6ed1f6;-ms-box-shadow:0 0 2px #6ed1f6;-o-box-shadow:0 0 2px #6ed1f6;box-shadow:0 0 2px #6ed1f6}
+.login_module .login_user{background:url("../img/Resources/image/02.png") no-repeat 98% center; background-size:25px auto;}
+.login_module .login_password{background:url("../img/Resources/image/03.png") no-repeat 98% center; background-size:23px auto;}
+.login_module .weui_cell img{position:absolute;display:none;right:9%;top:18px;width:25px;height:auto;}
+.btn_sty1{background-color:#12b8f6;}
+.weui_btn_primary.btn_sty1:not(.weui_btn_disabled):active{background-color:#08a8e4;}
+.login_module .forgetPassword {padding-bottom:5px;text-align:right;}
+.login_module .forgetPassword a{ cursor:pointer;font-size:18px;color:#7eae1c;outline:none;}
+
+/*注册*/
+.register{ margin-top: 15px; width: 98%;}

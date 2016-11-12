@@ -1,0 +1,28 @@
+<div class="weui_tab">
+	<div class="weui_tab_bd">
+		<div id="tab1" class="weui_tab_bd_item weui_tab_bd_item_active">
+			<div class="weui-row">
+				<div class="weui-col-25">
+					<a href="http://map.baidu.com/"><img class="daohang" src="img/Resources/image/导航.png"></a>
+					<p>导航</p>
+				</div>
+				<div class="weui-col-25">
+					<a href="modules/weizhang/weizhang.html"><img class="weizhang" src="img/Resources/违章.png"></a>
+					<p>违章</p>
+				</div>
+				<div class="weui-col-25 disabled">
+					<img class="jiayou" src="img/Resources/image/加油.png" />
+					<p>加油</p>
+				</div>
+				<div class="weui-col-25 disabled">
+					<img class="kuaixiu" src="img/Resources/image/快修.png" />
+					<p>快修</p>
+				</div>
+			</div>
+			<div class="mission"><b>当前任务(<span class="mission-num">0</span>)</b></div>
+			<div class="img"><img src="img/Resources/image/car_easy_driver_notask.png" width="60%"/></div>
+			<div class="mission-now">当前暂无任务...</div>
+			<a href="javascript:;" class="weui_btn weui_btn_primary fresh">点击重试</a>
+		</div>
+	</div>
+</div> 
