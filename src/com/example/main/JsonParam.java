@@ -23,6 +23,7 @@ public class JsonParam {
 	// 解析json信息
 	public JSONObject JsonAnalytical() {
 		try {
+			System.out.println(string);
 			jsonObject = new JSONObject(string);
 
 			if (jsonObject.getString("object").equals("login")) { // 登录请求

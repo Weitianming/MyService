@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="app" ng-controller="appCtrl">
 <head>
-<title>µ«¬º</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+<title>ÁôªÂΩï</title>
 <link rel="stylesheet" type="text/css" href="/login/login.css" />
 </head>
 
@@ -14,18 +18,18 @@
 		</header>
 
 		<br />
-		<!-- ’˝Œƒƒ⁄»› -->
+		<!-- Ê≠£ÊñáÂÜÖÂÆπ -->
 		<div id="content">
 
 			<form id="input-form" method="post">
 
-				<input id="accountName" name="accountName" maxlength="320"
-					type="text" class="input-block input-large" placeholder="  ‰»Îƒ˙µƒ’À∫≈" />
+				<input id="accountName" name="accountName" maxlength="320" ng-model="username"
+					type="text" class="input-block input-large" placeholder=" ËæìÂÖ•ÊÇ®ÁöÑË¥¶Âè∑" />
 
-				<input id="accountName" name="accountName" maxlength="320"
-					type="text" class="input-block input-large" placeholder="  ‰»Îƒ˙µƒ√‹¬Î" />
+				<input id="accountName" name="accountName" maxlength="320" ng-model="password"
+					type="text" class="input-block input-large" placeholder=" ËæìÂÖ•ÊÇ®ÁöÑÂØÜÁ†Å" />
 					
-				<button  id="submit" class="but">µ«¬º</button>
+				<button  id="submit" class="but" ng-click="doLogin()" >ÁôªÂΩï</button>
 				
 				<ul id="help-links">
 				<li>asd</li>
@@ -41,8 +45,11 @@
 	<footer id="footer">
 		<hr align="center" width="80%">
 		<a
-			href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">ÕÓICP±∏15026601∫≈</a>
+			href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">ÁöñICPÂ§á15026601Âè∑</a>
 
 	</footer>
+	<script type="text/javascript" src="/js/jquery-1.11.0.min.1UgDG.js"></script>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/login.js"></script>
 </body>
 </html>

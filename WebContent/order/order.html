@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+
+<body ng-app="myApp" ng-controller="OrderFormController">
+
+<form>
+    <h1>测试</h1>
+
+    <ul>
+        <!--<li ng-repeat="service in services" ng-click="toggleActive(service)">-->
+        <li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+            {{service.name}} <span>{{service.price | currency}}</span>
+        </li>
+    </ul>
+
+    <div class="total">
+        总计:<span>{{total() | currency}}</span>
+    </div>
+
+</form>
+
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

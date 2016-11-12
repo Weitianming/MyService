@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--谷歌内核-->
+		<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+		<title>测试</title>
+		<link rel="stylesheet" href="css/weui.min.css" />
+		<link rel="stylesheet" href="css/jquery-weui.min.css" />
+		<link rel="stylesheet" href="css/demos.css" />
+
+	</head>
+
+	<body>
+
+		<div class="weui_tab">
+			<div class="weui_tab_bd">
+				<div id="ui-view"></div>
+			</div>
+
+			<!-- Tab 自动切换 -->
+			<div class="weui_tabbar">
+				<a href="#task" class="weui_tabbar_item weui_bar_item_on">
+					<div class="weui_tabbar_icon">
+						<img src="img/icon_tabbar.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">任务</p>
+				</a>
+				<a href="#administrator" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="img/icon_tabbar.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">管理</p>
+				</a>
+				<a href="#mine" class="weui_tabbar_item">
+					<div class="weui_tabbar_icon">
+						<img src="img/icon_tabbar.png" alt="">
+					</div>
+					<p class="weui_tabbar_label">我的</p>
+				</a>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-weui.min.js"></script>
+		<!--<script type="text/javascript" src="js/zepto.min.js"></script>-->
+		<script type="text/javascript" src="js/vipspa.js"></script>
+		<script type="text/javascript" src="js/fastclick.js"></script>
+		<!--<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>-->
+		<!--<script type="text/javascript" src="js/city-picker.min.js"></script>-->
+		<!--<script type="text/javascript" src="js/swiper.min.js"></script>-->
+		<script type="text/javascript" src="js/commrouter.js"></script>
+
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+
+		<script type="text/javascript" src="task/task.js"></script>
+
+	</body>
+
+</html>

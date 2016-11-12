@@ -37,19 +37,26 @@ public class ConnectManager {
 		if (!DeviceId.equals("null") && !DeviceId.equals("")
 				&& DeviceId != null) { // 设备ID是否存在
 			try {
-				if (new DeviceInfoDemoTest().testGetDeviceInfos(DeviceId)) { // 该ID在线发送消息
-					string = new PushAndroid().PushMessageToAndroid(sender,
-							DeviceId, content); // 在线发送消息
+				if (DeviceId.equals("000")) { // 该设备在网页登录
+					
+					// 传递给网页
+					
 				} else {
-					string = new PushAndroid().PushNoticeToAndroid(sender,
-							DeviceId, content); // 离线发送推送
+					if (new DeviceInfoDemoTest().testGetDeviceInfos(DeviceId)) { // 该ID在线发送消息
+						string = new PushAndroid().PushMessageToAndroid(sender,
+								DeviceId, content); // 在线发送消息
+					} else {
+						string = new PushAndroid().PushNoticeToAndroid(sender,
+								DeviceId, content); // 离线发送推送
+					}
 				}
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
 		} else { // 没有设备ID
-			System.out.println(receiver+" 账号未登陆");
+			System.out.println(receiver + " 账号未登陆");
 		}
 
 		if (!string.equals("") && string != null) {
@@ -70,12 +77,6 @@ public class ConnectManager {
 		// onLogou(sender); // 注销时处于下线状态
 		return new DataBaseDemo().addDeviceId(sender, "null");
 	}
-	
-	
-	
-	
-	
-	
 
 	// 上线通知
 	public String onLogin(String sender) {

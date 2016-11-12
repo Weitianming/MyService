@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html ng-app="app" ng-controller="appCtrl">
 <head>
 <meta http-equiv="imagetoolbar" content="false" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -113,14 +113,14 @@ input-focus">
 						<div class="controls">
 							<input aria-labelledby="accountName-label" id="accountName"
 								name="accountName" title="输入您的账号" maxlength="320" type="text"
-								tabindex="1" class="input-block input-large"
+								tabindex="1" class="input-block input-large" ng-model="username"
 								placeholder="输入您的账号" autocorrect="off" spellcheck="false" />
 						</div>
 					</div>
 					<div class="control-group">
 						<label id="password-label" class="control-label" for="password">输入您的密码</label>
 						<div class="controls">
-							<input aria-labelledby="password-label" id="password"
+							<input aria-labelledby="password-label" id="password"ng-model="password"
 								name="password" title="输入您的密码" maxlength="16" type="password"
 								tabindex="1" class="input-block input-large" autocomplete="off"
 								placeholder="输入您的密码" autocorrect="off" spellcheck="false" />
@@ -142,7 +142,7 @@ input-focus">
 				<div class="control-group submit ">
 					<button type="submit" id="submit"
 						class="btn btn-primary btn-large btn-block " data-loading-text=""
-						tabindex="1">
+						tabindex="1" ng-click="doLogin()" >
 						登录 <i class="spinner-battlenet"></i>
 					</button>
 				</div>
@@ -348,5 +348,8 @@ http://www.battlenet.com.cn/account/support/login-support.html?ref=&amp;theme=bn
 	<script type="text/javascript" src="/login/global.min.40AuO.js"></script>
 	<script type="text/javascript" src="/login/login.min.4TS5Y.js"></script>
 	<script type="text/javascript" src="/login/srp-client.min.30N9R.js?v=1"></script>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/login.js"></script>
+	
 </body>
 </html>
