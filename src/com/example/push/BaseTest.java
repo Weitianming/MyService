@@ -12,7 +12,7 @@ public class BaseTest {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou",
-				"KzuqnYKPlkUZb4PS", "EH91BgTQYavkawQNlhTw1in8S2X9jm");
+				"没有，别再给我发邮件了，病毒阿里", "没有，别再给我发邮件了，病毒阿里");
 		client = new DefaultAcsClient(profile);
 		
 	}
